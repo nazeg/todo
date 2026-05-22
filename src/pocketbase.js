@@ -1,7 +1,13 @@
 import PocketBase from 'pocketbase';
 
-// PocketBase yerel adresi. İsteğe göre değiştirilebilir.
-const POCKETBASE_URL = 'http://127.0.0.1:8090';
+// PocketBase sunucu adresi (Yerel geliştirme için 8090 portu, sunucu için veritabanı portu veya Nginx proxy adresi)
+const POCKETBASE_URL = typeof window !== 'undefined' && 
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.port === '5173')
+    ? 'http://127.0.0.1:8090'
+    : (window.location.origin.includes('10000') 
+       ? 'http://192.168.64.114:10001' // Ayrı portlu dağıtımlar için (Statik site 10000'deyken veri tabanı 10001'de)
+       : window.location.origin); // Pocketbase site türü için Nginx proxy adresi
+
 const pb = new PocketBase(POCKETBASE_URL);
 
 let usePocketBase = false;
