@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doit. - Minimalist & Akıllı Todo Uygulaması</title>
+    <meta name="description" content="PocketBase entegrasyonlu, ultra modern ve minimalist bir yapılacaklar (todo) uygulaması." />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/assets/index-DWcSmOvM.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DgJlenq3.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="glass-container">
+        <!-- Header -->
+        <header class="app-header">
+          <div class="logo-area">
+            <h1 class="logo">doit<span>.</span></h1>
+            <p class="tagline">Gününüzü minimalist bir düzenle planlayın.</p>
+          </div>
+          <!-- Connection Badge -->
+          <div id="connection-badge" class="badge connecting">
+            <span class="badge-dot"></span>
+            <span id="badge-text" class="badge-text">Bağlanıyor...</span>
+          </div>
+        </header>
+
+        <!-- Todo Ekleme Formu -->
+        <form id="todo-form" class="todo-form">
+          <div class="input-group">
+            <input 
+              type="text" 
+              id="todo-input" 
+              placeholder="Yeni bir görev ekle..." 
+              required 
+              autocomplete="off"
+              maxlength="100"
+            />
+            <button type="submit" id="todo-submit-btn" aria-label="Görev Ekle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+          </div>
+        </form>
+
+        <!-- Filtreler -->
+        <div class="filters">
+          <button id="filter-all" class="filter-btn active" data-filter="all">Tümü</button>
+          <button id="filter-active" class="filter-btn" data-filter="active">Aktif</button>
+          <button id="filter-completed" class="filter-btn" data-filter="completed">Tamamlananlar</button>
+        </div>
+
+        <!-- Todo Listesi -->
+        <main class="list-container">
+          <ul id="todo-list" class="todo-list">
+            <!-- Dinamik olarak main.js ile doldurulacak -->
+          </ul>
+          
+          <!-- Boş Durum (Empty State) -->
+          <div id="empty-state" class="empty-state hidden">
+            <div class="empty-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+            </div>
+            <p id="empty-text">Yapılacak hiçbir görev yok! Yeni bir tane ekleyin.</p>
+          </div>
+        </main>
+
+        <!-- İstatistikler ve Footer -->
+        <footer class="app-footer">
+          <span id="items-left" class="items-left">0 görev kaldı</span>
+          <button id="clear-completed-btn" class="clear-completed-btn">Tamamlananları Temizle</button>
+        </footer>
+      </div>
+    </div>
+    
+  </body>
+</html>
