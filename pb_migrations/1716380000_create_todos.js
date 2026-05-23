@@ -13,6 +13,16 @@ migrate((app) => {
     collection.fields.add(new BoolField({
       name: "completed",
     }));
+    collection.fields.add(new AutodateField({
+      name: "created",
+      onCreate: true,
+      onUpdate: false,
+    }));
+    collection.fields.add(new AutodateField({
+      name: "updated",
+      onCreate: true,
+      onUpdate: true,
+    }));
   } else {
     collection.schema = [
       {
