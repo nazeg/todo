@@ -12,6 +12,6 @@
     "vite": "^8.0.12"
   },
   "dependencies": {
-    "pocketbase": "^0.38.1"
+    "pocketbase": "latest"
   }
 }
