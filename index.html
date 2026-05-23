@@ -20,12 +20,23 @@
             <h1 class="logo">doit<span>.</span></h1>
             <p class="tagline">Gününüzü minimalist bir düzenle planlayın.</p>
           </div>
-          <!-- Connection Badge -->
-          <div id="connection-badge" class="badge connecting">
-            <span class="badge-dot"></span>
-            <span id="badge-text" class="badge-text">Bağlanıyor...</span>
+          <div class="header-controls" style="display: flex; align-items: center; gap: 8px;">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Temayı Değiştir">
+              <svg id="theme-toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <!-- Connection Badge -->
+            <div id="connection-badge" class="badge connecting">
+              <span class="badge-dot"></span>
+              <span id="badge-text" class="badge-text">Bağlanıyor...</span>
+            </div>
           </div>
         </header>
+
+        <!-- İlerleme Çubuğu -->
+        <div class="progress-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
 
         <!-- Todo Ekleme Formu -->
         <form id="todo-form" class="todo-form">
@@ -42,7 +53,57 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
             </button>
           </div>
+          
+          <!-- Ek Görev Seçenekleri -->
+          <div class="form-options-row">
+            <div class="custom-select-wrapper">
+              <select id="todo-priority" class="form-select" aria-label="Öncelik">
+                <option value="medium">Orta Öncelik</option>
+                <option value="high">Yüksek Öncelik</option>
+                <option value="low">Düşük Öncelik</option>
+              </select>
+            </div>
+            <div class="custom-select-wrapper">
+              <select id="todo-category" class="form-select" aria-label="Kategori">
+                <option value="personal">🏠 Kişisel</option>
+                <option value="work">💼 İş</option>
+                <option value="shopping">🛒 Alışveriş</option>
+                <option value="study">📚 Eğitim</option>
+                <option value="health">🎯 Sağlık</option>
+              </select>
+            </div>
+            <div class="date-input-wrapper">
+              <input 
+                type="date" 
+                id="todo-due-date" 
+                class="form-date-input" 
+                aria-label="Bitiş Tarihi"
+              />
+            </div>
+          </div>
         </form>
+
+        <!-- Arama ve Sıralama -->
+        <div class="search-sort-container">
+          <div class="search-group">
+            <span class="search-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <input 
+              type="text" 
+              id="todo-search" 
+              class="search-input" 
+              placeholder="Görevlerde ara..." 
+              autocomplete="off"
+            />
+          </div>
+          <select id="todo-sort" class="sort-select" aria-label="Sıralama">
+            <option value="date-new">Yeniye Göre Sırala</option>
+            <option value="date-old">Eskiye Göre Sırala</option>
+            <option value="priority">Önceliğe Göre Sırala</option>
+            <option value="due-date">Bitiş Tarihine Göre</option>
+          </select>
+        </div>
 
         <!-- Filtreler -->
         <div class="filters">
